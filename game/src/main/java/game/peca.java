@@ -56,6 +56,7 @@ public class peca {
         private int x, y; // Posição no tabuleiro
         private int rotacao; // 0, 1, 2, 3 (90°, 180°, 270°, 360°)
 
+        // Construtor
         public peca(TipoPeca tipo, int startX, int startY){
             this.tipo = tipo;
             this.x = x;
@@ -67,9 +68,15 @@ public class peca {
 
         }
 
-        private void loadShape(){
-            
+        // Carrega a forma da peça baseada no tipo
+        private void loadShape() {
+        int tipoIndex = tipo.ordinal();
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                this.formato[i][j] = FORMATO_PECA[tipoIndex][i][j];
+            }
         }
+    }
     }
 
 
